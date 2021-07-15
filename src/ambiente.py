@@ -1,8 +1,9 @@
 class Ambiente:
-    def __init__(self, id, is_iluminated=False):
+    def __init__(self, id, look, is_iluminated=False):
         self.itens = None
         self.is_iluminated = is_iluminated 
         self.id = id
+        self.look = look
     
     def set_itens(self, itens):
         self.itens = itens
@@ -26,4 +27,5 @@ class Ambiente:
                 return i 
         print("Não foi encontrado!")
 
-
+    def lookat(self):
+        print(self.look)
