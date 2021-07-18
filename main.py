@@ -17,9 +17,6 @@ from pprint import pprint
 from copy import deepcopy
 
 
-# initialize scenario object
-scenario = Scenario()
-
 # create all environments
 maquinario = Environment('Maquinário','O maquinário do navio, contém máquinas pesadas e algumas ferramentas',{})
 dormitorio = Environment('Dormitório', 'O dormitório, contém alguns objetos pessoas dos passageiros' ,{})
@@ -92,10 +89,12 @@ meu_quarto.store_item(relogio)
 quartoa.store_item(carta)
 
 # add environments to the scenario
-scenario.add_environment(maquinario, '1')
-scenario.add_environment(dormitorio,'2')
-scenario.add_environment(saguao,'3')
-scenario.add_environment(conves,'4')
+# scenario.add_environment(maquinario, '1')
+# scenario.add_environment(dormitorio,'2')
+# scenario.add_environment(saguao,'3')
+# scenario.add_environment(conves,'4')
+
+
 
 # add furnitures to environment
 ### MOVEIS MAQUINARIO
@@ -131,6 +130,14 @@ saguao.add_furniture(radio,'6')
 saguao.add_furniture(tv,'4')
 saguao.add_furniture(cofre,'1')
 
+# initialize scenario object
+scenario = Scenario()
+scenario.add_environment(conves)
+scenario.add_environment(saguao)
+scenario.add_environment(dormitorio)
+scenario.add_environment(maquinario)
+
+
 
 # create player inventory
 inventory = Inventory()
@@ -149,7 +156,9 @@ available_actions = {
 
         
 # main
-print(scenario)
+room = scenario.head
+print(room)
+
 while True:
       
     # try:
@@ -174,24 +183,18 @@ while True:
     ## Ações de movimentação
         
     elif action == 'direita':
-
-        # faz o que precisa
-        scenario.direita()
-        print(scenario)
+        room = room.gonext()
         
     elif action == 'esquerda':
-
-        # faz o que precisa
-        scenario.esquerda()
-        print(scenario)
+        room = room.goprev()
 
         
     # interação com os elementos
     elif 'interagir' in action:
-        print(scenario)
+        print(room)
         # get the desired furniture
         movel = action.split()[1]
-        resp = scenario.get_env_by_name(movel).play(inventory, inventory2)
+        resp = room.get_env_by_name(movel).play(inventory, inventory2)
 
         if movel == 'bote' and resp:
             print("Parabens, você conseguiu sair do navio!!")
@@ -205,14 +208,14 @@ while True:
 
     # ação de olhar
     elif 'olhar' in action:
-        print(scenario)
+        print(room)
         objeto_para_olhar = action.split()
         if len(objeto_para_olhar) == 2:
             objeto_para_olhar = objeto_para_olhar[1]
             # se o objeto para olhar é o ambiente
-            ambiente_atual = scenario.envs[scenario.actual].name.lower()
+            ambiente_atual = room.data.name.lower()
             if objeto_para_olhar == ambiente_atual:
-                print(scenario.envs[scenario.actual].descricao)
+                print(room.data.descricao)
 
             # se o objeto para olhar é um item do inventário
             elif inventory.check(objeto_para_olhar):
@@ -222,7 +225,7 @@ while True:
 
             # se o objeto para olhar é um móvel
             else:
-                movel = scenario.get_env_by_name(objeto_para_olhar)
+                movel = room.data.get_env_by_name(objeto_para_olhar)
                 movel.olhar()
         
         else:
