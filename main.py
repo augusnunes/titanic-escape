@@ -206,23 +206,27 @@ while True:
     # ação de olhar
     elif 'olhar' in action:
         print(scenario)
-        objeto_para_olhar = action.split()[1]
+        objeto_para_olhar = action.split()
+        if len(objeto_para_olhar) == 2:
+            objeto_para_olhar = objeto_para_olhar[1]
+            # se o objeto para olhar é o ambiente
+            ambiente_atual = scenario.envs[scenario.actual].name.lower()
+            if objeto_para_olhar == ambiente_atual:
+                print(scenario.envs[scenario.actual].descricao)
 
-        # se o objeto para olhar é o ambiente
-        ambiente_atual = scenario.envs[scenario.actual].name.lower()
-        if objeto_para_olhar == ambiente_atual:
-            print(scenario.envs[scenario.actual].descricao)
+            # se o objeto para olhar é um item do inventário
+            elif inventory.check(objeto_para_olhar):
+                    for item in inventory.itens:
+                        if item.name == objeto_para_olhar:
+                            print(item.message)
 
-        # se o objeto para olhar é um item do inventário
-        elif inventory.check(objeto_para_olhar):
-                for item in inventory.itens:
-                    if item.name == objeto_para_olhar:
-                        print(item.message)
-
-        # se o objeto para olhar é um móvel
+            # se o objeto para olhar é um móvel
+            else:
+                movel = scenario.get_env_by_name(objeto_para_olhar)
+                movel.olhar()
+        
         else:
-            movel = scenario.get_env_by_name(objeto_para_olhar)
-            movel.olhar()
+            print("Comando inválido")
     else:
         print('Interação inválida\n')
 
