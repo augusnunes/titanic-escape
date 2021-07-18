@@ -2,7 +2,12 @@ from src import personagens as p
 
 
 
-# list items
+
+
+
+
+
+
 # get <item>
 # get all
 # look at <item>
@@ -11,5 +16,6 @@ from src import personagens as p
 # exit room
 # go to <id_sala>
 # search items
+# look at room
 
 # list backpack

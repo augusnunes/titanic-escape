@@ -10,4 +10,4 @@ class Inventario:
         """
         :param items: lista de itens a serem guardados
         """
-        
+        self.itens.append(item)

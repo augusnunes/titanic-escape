@@ -14,5 +14,6 @@ class Mapa:
     
     def printa_vizinhos(self, id_sala):
         for i in range(len(self.vizinhos[id_sala])):
-            print(f"{i} - {self.vizinhos[id_sala][i]}")
-            
+            print(f"{i} - {self.vizinhos[id_sala][i]}") # possivel que esteja errado
+
+

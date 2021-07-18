@@ -5,27 +5,35 @@ class Personagem:
         self.mapa = mapa
         self.position = posicao_inicial
 
-    def goto(self, id_sala):
-        self.position = self.mapa.vizinhos[id_sala]
-
-    def searchitems(self):
-        self.mapa.salas[self.position].procura()
-
     def exitroom(self, id_sala):
         print("Salas que você pode ir: ")
         self.mapa.printa_vizinhos(self.position)
 
-    def getitem():
-        pass 
+    def goto(self, id_sala):
+        self.position = self.mapa.vizinhos[id_sala]
 
-    def getall():
-        pass 
-    
-    def lookatitem():
-        pass 
+    def lookatroom(self):
+        self.mapa.salas[self.position].lookat()
 
-    def lookatsala():
-        pass 
+    def searchitems(self):
+        self.mapa.salas[self.position].procura()
+
+    def getitem(self, id):
+        i = self.mapa.salas[self.position].itens[id] 
+        if i.pegavel:
+            self.inventario.insert(i)
+        else:
+            print(f"Não foi possível pegar {i.name}!")
+
+    def getall(self, ids):
+        for i in ids:
+            self.getitem(i)
+
+    def lookatitem(self, id):
+        self.mapa.salas[self.position].itens[id].lookat()
 
     def listbackpack(self):
-        pass 
+        self.inventario.list()
+
+    def use(self, id):
+        self.win = self.inventario.items[id].use()

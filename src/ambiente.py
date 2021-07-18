@@ -1,5 +1,6 @@
 class Ambiente:
-    def __init__(self, id, look, is_iluminated=False):
+    def __init__(self, id, name, look, is_iluminated=False):
+        self.name = name
         self.itens = None
         self.is_iluminated = is_iluminated 
         self.id = id
@@ -10,8 +11,10 @@ class Ambiente:
 
     def printa_itens(self):
         print("Itens: ")
+        e = 0
         for i in self.itens:
-            print('- '+i.name)
+            print(f'{e} - '+i.name)
+            e+=1
         print("~~~~~~~~~~~~~~~~~~~~~~~~\n")
 
     def procura(self):
