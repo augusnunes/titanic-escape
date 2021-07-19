@@ -1,0 +1,1 @@
+# Diretório para armazenar dados do jogo

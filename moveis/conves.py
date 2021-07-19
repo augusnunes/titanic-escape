@@ -1,7 +1,6 @@
 from superclasses.movel import Movel
 
 import time
-from pprint import pprint
 from copy import deepcopy
 
 # Interativos

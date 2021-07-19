@@ -13,9 +13,9 @@ from moveis.dormitorio import *
 from os.path import isfile
 from joblib import dump, load
 
-inv1 = './classes/inv1.joblib'
-inv2 = './classes/inv2.joblib'
-sce = './classes/sce.joblib'
+inv1 = './.classes/inv1.joblib'
+inv2 = './.classes/inv2.joblib'
+sce = './.classes/sce.joblib'
 
 def init():
     if isfile(inv1) and isfile(inv2) and isfile(sce):
@@ -30,14 +30,7 @@ def init():
         pe_de_cabra = Item('pe_de_cabra', 'um pe de cabra... da pra usar de alavanca, ou ate quebrar algo')
         relogio = Item('relogio','Mds, o relogio que meu pai me deu. Nunca que eu sairia desse navio sem isso!!!')
         chave = Item('chave','Aaah, a chave do bote: bora sair daquii!')
-        carta = Item('carta', """Querida Julia,
-
-Sei que muita gente não se importa com você e que quase todo mundo te ignora, mas saiba do teu valor,mulher! Você consegue se sair bem em tudo que faz e além de tudo é rápida. Olha, se o pessoal soubesse que você é bem mais legal que seu pai... Sério, o mundo seria diferente.
-
-Te amo 77815 vezes mais do que qualquer um dos seus parentes (Cenelson, Pai Tom, Tia Mat, Tia Rub, Primo Lisp, ...).
-Beijos do Seu Adimirador
-    -j
-        """)
+        carta = Item('carta', open('carta.txt').read())
         ######################################################
         # create all furnitures
         #------------------------------------------------------

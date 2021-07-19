@@ -1,21 +1,6 @@
 #########  UNIAO  #########
 
 # import required libraries
-from superclasses.movel_naoiter import MovelNaoIter
-from superclasses.invetory import Inventory
-from superclasses.scenario import Scenario
-from superclasses.environment import Environment
-from superclasses.item import Item
-
-from moveis.maquinario import *
-from moveis.conves import *
-from moveis.saguao import *
-from moveis.dormitorio import *
-
-import time
-from pprint import pprint
-from copy import deepcopy
-
 from init_classes import init
 
 def main():
@@ -87,7 +72,7 @@ def main():
                 
                 # se o objeto para olhar é o ambiente
                 ambiente_atual = room.data.name.lower()
-                if objeto_para_olhar == ambiente_atual.name:
+                if objeto_para_olhar == ambiente_atual:
                     print(room.data.descricao)
 
                 # se o objeto para olhar é um item do inventário

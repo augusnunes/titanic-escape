@@ -1,7 +1,6 @@
 from superclasses.movel import Movel
 
 import time
-from pprint import pprint
 from copy import deepcopy
 
 
@@ -20,7 +19,7 @@ class ArmarioFerramentas(Movel):
     def list(self):
         print("\nItens no %s" % self.name)
         for k in self.nomes:
-            print(k)
+            print('- '+k)
 
     def play(self, inventory, inv2):
 
