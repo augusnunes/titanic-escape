@@ -1,14 +1,22 @@
 
 # player inventory
 class Inventory:
+    '''Classe que representa o inventário do jogador
+    '''
 
     def __init__(self):
         self.itens = []
         self.nomes = [] ### implementar isso
 
     def add(self, item):
-        self.itens.append(item)
-        self.nomes.append(item.name)
+        if type(item) == list:
+            for i in item:
+                self.itens.append(i)
+                self.nomes.append(i.name)                
+        else:
+            self.itens.append(item)
+            self.nomes.append(item.name)
+        
 
     def remove(self, name):
         for i in range(len(self.itens)):

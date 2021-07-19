@@ -1,4 +1,8 @@
 class Node:
+    ''' Classe abstrata que contém uma lista duplamente encadeada, que é
+    responsável pela movimentação do jogador, além da função que faz a animação 
+    dos ambientes
+    '''
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -6,25 +10,25 @@ class Node:
 
     def __str__(self):
     
-        # read environment schema
+        # Lê o arquivo do cenário
         with open('environment.schema', 'r') as schema:
             schema_str = schema.read()
 
-        # set environment name
+        # insere o nome dos ambientes
         schema_str = schema_str.replace('#'*schema_str.count('#'), 
         self.data.name.center(schema_str.count('#'), ' '))
 
-        # set furniture names
+        # insere os nomes dos móveis em cada ambiente
         for i in range(6):
             if self.data.nomes_moveis[i]: # se não tiver um None ele faz o replace na string do ambiente
                 placeholder = f'{i+1}'
                 schema_str = schema_str.replace(placeholder * schema_str.count(placeholder), self.data.nomes_moveis[i].center(schema_str.count(placeholder), ' '))
 
-        # clean unused slots
+        # limpa espaços inutilizáveis
         for i in range(6):
             schema_str= schema_str.replace(str(i+1) * schema_str.count(str(i+1)), ' '*schema_str.count(str(i+1)))
 
-        # replace environments
+        # movimentação
         previous_env = self.prev 
         next_env = self.next 
     

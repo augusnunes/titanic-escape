@@ -8,7 +8,7 @@ class QuartoInterativo(Movel):
             'ajuda': 'retorna as ações possíveis',
             'procurar': 'Procura por intens no %s' % self.name,
             'voltar': 'Parar de mexer no %s: ' % self.name,
-            'pegar': 'Pegar um item específico',
+            'pegar item': 'Pegar um item específico',
             'pegar_todos': 'Pegar todos os itens'
         }
 
@@ -36,6 +36,10 @@ class QuartoInterativo(Movel):
                 return self.pegar_todos()
 
             elif 'pegar' in action:
+                ver = action.split()
+                if len(ver) == 1:
+                    print('você não escolheu nenhum item')
+                    continue
                 return self.pegar(action.split()[1])
 
             elif action == 'procurar':

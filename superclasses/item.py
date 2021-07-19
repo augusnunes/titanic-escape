@@ -1,6 +1,6 @@
 class Item:
     """
-      Super class to abstract itens
+      Super classe para itens abstratos
     """
 
     def __init__(self, name, message):

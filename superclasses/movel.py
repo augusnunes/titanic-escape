@@ -1,6 +1,7 @@
+from copy import deepcopy
 class Movel:
     """
-      Super class to abstract furnitures
+      Super class para móveis interativos
     """
 
     def __init__(self, name, message):
@@ -11,20 +12,19 @@ class Movel:
 
     def olhar(self):
         """
-            Method that display the description of the furniture
+           Método que retorna uma breve descrição do item/móvel
         """
         print(self.message)
 
     def pegar_todos(self):
         """
-            Method to that returns to the player all the itens in the furniture \
-          and clear the itens list
+           Método que retorna todos os itens disponíveis em um móvel para o jogador
         """
         if len(self.itens):
             all_itens = [i for i in self.itens]
             self.itens = []
             self.nomes = []
-            print('Você pegou todos os itens')
+            print('Você pegou todos os itens')         
             return all_itens
 
         else:
@@ -32,7 +32,7 @@ class Movel:
 
     def pegar(self, item):
         """
-            Method that returns to the player the item requested
+            Método que retorna ao jogador o item requerido
         """
         # try:
         if item in self.nomes:

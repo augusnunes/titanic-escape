@@ -4,16 +4,19 @@
 from init_classes import init
 
 def main():
+    ''' Classe principal, que reconhece as ações de movimentação 
+    e interação do jogador
+    '''
     inventory, inventory2, scenario = init()
 
     # list all available actions
     available_actions = {
     'sair': 'Sai do jogo',
     'ajuda': 'Mostra os comandos possíveis',
-    'inventario': 'Abre inventario',
-    'direita': 'Vai para a sala da direita',
-    'esquerda': 'Vai para a sala da esquerda',
-    'interagir': 'Interage com moveis da sala',
+    'inventario ou inv': 'Abre inventario',
+    'direita ou dir': 'Vai para a sala da direita',
+    'esquerda ou esq': 'Vai para a sala da esquerda',
+    'interagir ou int': 'Interage com moveis da sala',
     'olhar': 'Dá descrição de itens e móveis'
     }
 
@@ -33,22 +36,22 @@ def main():
             for key, value in available_actions.items():
                 print("%s: %s" % (key, value))
                 
-        elif action == 'inventario':
+        elif action == 'inventario' or action == "inv":
             print(inventory)
         #elif action == 'inventario2': 
             #print(inventory2)
 
         ## Ações de movimentação
             
-        elif action == 'direita':
+        elif action == 'direita' or action == "dir":
             room = room.gonext()
             
-        elif action == 'esquerda':
+        elif action == 'esquerda' or action == "esq":
             room = room.goprev()
 
             
         # interação com os elementos
-        elif 'interagir' in action:
+        elif 'interagir' in action or 'int' in action:
             print(room)
             # get the desired furniture
             movel = action.split()[1]

@@ -1,7 +1,7 @@
 
 class Environment:
   """
-  ADS of the a environment, an area that the player can interagir with
+  Classe de um ambiente cujo jogador pode interagir
   """
 
   def __init__(self, name, descricao):
@@ -12,9 +12,8 @@ class Environment:
 
   def add_furniture(self, furniture, place):
     """
-        Method to add the given furniture to the environment
-        Parameters:
-        furniture (Object(Movel)): furniture to add
+        Método que adiciona um móvel ao dado ambiente
+        furniture (Object(Movel)): móvel para add
     """
     self.moveis[place] = furniture
     self.nomes_moveis[place] = furniture.name
