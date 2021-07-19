@@ -8,8 +8,8 @@ from copy import deepcopy
 # Interativos
 class Cofre(Movel):
     # itens esconditos é lista de itens que vai pro inventario depois de quebrar
-    def __init__(self, name, message, itens, itens_escondidos):
-        super().__init__(name, message, itens)
+    def __init__(self, name, message, itens_escondidos):
+        super().__init__(name, message)
         self.itens_escondidos = itens_escondidos
         self.actions = {
             'ajuda': 'retorna as ações possíveis',
@@ -23,11 +23,11 @@ class Cofre(Movel):
         self.olhar()
 
         # Entra em um novo loop para interação com aquele móvel
-        while 1:
+        while True:
 
             try:
 
-                action = input("\nInsira um comando para interagir com %s:\n" % self.name)
+                action = input("\nInsira um comando para interagir com %s:\n>>>" % self.name)
 
                 if action == 'ajuda':
                     for key, value in self.actions.items():
@@ -84,8 +84,8 @@ class Cofre(Movel):
 
 class Tv(Movel):
     # itens esconditos é lista de itens que vai pro inventario depois de quebrar
-    def __init__(self, name, message, itens, itens_escondidos):
-        super().__init__(name, message, itens)
+    def __init__(self, name, message, itens_escondidos):
+        super().__init__(name, message)
         self.itens_escondidos = itens_escondidos
         self.actions = {
             'ajuda': 'retorna as ações possíveis',
@@ -99,11 +99,11 @@ class Tv(Movel):
         self.olhar()
 
         # Entra em um novo loop para interação com aquele móvel
-        while 1:
+        while True:
 
             try:
 
-                action = input("\nInsira um comando para interagir com %s:\n" % self.name)
+                action = input("\nInsira um comando para interagir com %s:\n>>>" % self.name)
 
                 if action == 'ajuda':
                     for key, value in self.actions.items():
@@ -140,7 +140,7 @@ class Tv(Movel):
 
             animation = "|/-\\"
             idx = 0
-            while 1:
+            while True:
                 if idx == 30:
                     break
                 print(animation[idx % len(animation)], end="\r")
@@ -156,8 +156,8 @@ class Tv(Movel):
 
 class Radio(Movel):
     # itens esconditos é lista de itens que vai pro inventario depois de quebrar
-    def __init__(self, name, message, itens, itens_escondidos):
-        super().__init__(name, message, itens)
+    def __init__(self, name, message, itens_escondidos):
+        super().__init__(name, message)
         self.itens_escondidos = itens_escondidos
         self.actions = {
             'ajuda': 'retorna as ações possíveis',
@@ -171,11 +171,11 @@ class Radio(Movel):
         self.olhar()
 
         # Entra em um novo loop para interação com aquele móvel
-        while 1:
+        while True:
 
             try:
 
-                action = input("\nInsira um comando para interagir com %s:\n" % self.name)
+                action = input("\nInsira um comando para interagir com %s:\n>>>" % self.name)
 
                 if action == 'ajuda':
                     for key, value in self.actions.items():

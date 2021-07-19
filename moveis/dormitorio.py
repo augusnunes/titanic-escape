@@ -6,8 +6,8 @@ from copy import deepcopy
 
 # Interativos
 class QuartoInterativo(Movel):
-    def __init__(self, name, message, itens):
-        super().__init__(name, message, itens)
+    def __init__(self, name, message):
+        super().__init__(name, message)
         self.actions = {
             'ajuda': 'retorna as ações possíveis',
             'procurar': 'Procura por intens no %s' % self.name,
@@ -27,11 +27,10 @@ class QuartoInterativo(Movel):
         self.olhar()
 
         # Entra em um novo loop para interação com aquele móvel
-        print('O que deseja fazer no %s: ' % self.name)
-        while 1:
+        while True:
 
             try:
-                action = input("\nInsira um comando para interagir com %s:\n" % self.name)
+                action = input("\nInsira um comando para interagir com %s:\n>>>" % self.name)
 
                 if action == 'ajuda':
                     for key, value in self.actions.items():
@@ -40,8 +39,8 @@ class QuartoInterativo(Movel):
                 if action == 'pegar_todos':
                     return self.pegar_todos()
 
-                if action == 'pegar':
-                    return self.pegar()
+                if 'pegar' in action:
+                    return self.pegar(action.split()[1])
 
                 if action == 'procurar':
                     self.list()

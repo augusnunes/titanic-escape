@@ -15,12 +15,14 @@ class Node:
         self.data.name.center(schema_str.count('#'), ' '))
 
         # set furniture names
-        for placeholder, furniture in self.data.moveis.items():
-            schema_str = schema_str.replace(placeholder * schema_str.count(placeholder), furniture.name.center(schema_str.count(placeholder), ' '))
+        for i in range(6):
+            if self.data.nomes_moveis[i]: # se não tiver um None ele faz o replace na string do ambiente
+                placeholder = f'{i+1}'
+                schema_str = schema_str.replace(placeholder * schema_str.count(placeholder), self.data.nomes_moveis[i].center(schema_str.count(placeholder), ' '))
 
         # clean unused slots
-        for i in range(1, 7):
-            schema_str= schema_str.replace(str(i) * schema_str.count(str(i)), ' '*schema_str.count(str(i)))
+        for i in range(6):
+            schema_str= schema_str.replace(str(i+1) * schema_str.count(str(i+1)), ' '*schema_str.count(str(i+1)))
 
         # replace environments
         previous_env = self.prev 
@@ -30,7 +32,6 @@ class Node:
             schema_str = schema_str.replace('X'*schema_str.count('X'), previous_env.data.name.center(schema_str.count('X'), ' '))
         else: 
             schema_str = schema_str.replace('X'*schema_str.count('X'), ' '*schema_str.count('X'))
-
 
         if next_env:
             schema_str = schema_str.replace('Y'*schema_str.count('Y'), next_env.data.name.center(schema_str.count('Y'), ' '))
@@ -57,8 +58,6 @@ class Node:
             print(self.prev)
             return self.prev
 
-    def get_env_by_name(self, name): # reimplementar
-        return {furniture.name: furniture for _, furniture in self.data.moveis.items()}[name]
 
 class Scenario:
     """
@@ -76,11 +75,8 @@ class Scenario:
         """
         new = Node(data)
         new.next = self.head 
-        if self.head is not None:
+        if self.head != None:
             self.head.prev = new 
         self.head = new
     
-
-    def get_env_by_name(self, name): # reimplementar
-        return {furniture.name: furniture for _, furniture in self.envs[self.actual].moveis.items()}[name]
 

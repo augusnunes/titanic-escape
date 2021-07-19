@@ -3,10 +3,11 @@ class Movel:
       Super class to abstract furnitures
     """
 
-    def __init__(self, name, message, itens):
+    def __init__(self, name, message):
         self.name = name
         self.message = message
-        self.itens = itens
+        self.itens = []
+        self.nomes = []
 
     def olhar(self):
         """
@@ -20,37 +21,35 @@ class Movel:
           and clear the itens list
         """
         if len(self.itens):
-            all_itens = list(self.itens.values())
-            all_itens = [i for i in all_itens]
-            self.itens = {}
+            all_itens = [i for i in self.itens]
+            self.itens = []
+            self.nomes = []
             print('Você pegou todos os itens')
-
-            return list(all_itens)
+            return all_itens
 
         else:
             return []  
 
-    def pegar(self):
+    def pegar(self, item):
         """
             Method that returns to the player the item requested
         """
-        try:
-
-            print("Selecione um item:")
-            for i in self.itens:
-              print(i)
-
-            item = input("Qual item você deseja pegar? ")
-            item = self.itens[item]
-            self.itens = {k:v for k,v in self.itens.items()}
-            print('Você pegou o item')
-
-            return [item]
-
-        except Exception as e:
-            ## In case the player inputs nonsense
+        # try:
+        if item in self.nomes:
+            for i in range(len(self.nomes)):
+                if item == self.nomes[i]:
+                    r = self.itens.pop(i)
+                    self.nomes.pop(i)
+                    print(f'Você pegou o item {item}!')
+                    return r
+        else:
             print("%s é um item inválido" % item)
-            return None
+        # except Exception as e:
+        #     ## In case the player inputs nonsense
+        #     print("%s é um item inválido" % item)
+        #     return None
 
     def store_item(self, item):
-        self.itens[item.name] = item
+        self.itens.append(item)
+        self.nomes.append(item.name)
+    

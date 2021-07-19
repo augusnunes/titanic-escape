@@ -7,19 +7,19 @@ from copy import deepcopy
 
 # Interativos
 class ArmarioFerramentas(Movel):
-    def __init__(self, name, message, itens):
-        super().__init__(name, message, itens)
+    def __init__(self, name, message):
+        super().__init__(name, message)
         self.actions = {
             'ajuda': 'retorna as ações possíveis',
             'procurar': 'Procura por intens no %s' % self.name,
             'voltar': 'Parar de mexer no %s: ' % self.name,
-            'pegar': 'Pegar um item específico',
+            'pegar': 'Lista itens para depois pegar',
             'pegar_todos': 'Pegar todos os itens'
         }
 
     def list(self):
         print("\nItens no %s" % self.name)
-        for k, _ in self.itens.items():
+        for k in self.nomes:
             print(k)
 
     def play(self, inventory, inv2):
@@ -28,11 +28,10 @@ class ArmarioFerramentas(Movel):
         self.olhar()
 
         # Entra em um novo loop para interação com aquele móvel
-        print('O que deseja fazer no %s: ' % self.name)
+
         while True:
 
-            # try:
-            action = input("\nInsira um comando para interagir com %s:\n" % self.name)
+            action = input("\nInsira um comando para interagir com %s:\n>>>" % self.name)
 
             if action == 'ajuda':
                 for key, value in self.actions.items():
@@ -41,8 +40,8 @@ class ArmarioFerramentas(Movel):
             elif action == 'pegar_todos':
                 return self.pegar_todos()
 
-            elif 'pegar' == action:
-                return self.pegar()
+            elif 'pegar' in action:
+                return self.pegar(action.split()[1])
 
             elif action == 'procurar':
                 self.list()
@@ -53,15 +52,10 @@ class ArmarioFerramentas(Movel):
             else:
                 print('Interação inválida')
 
-            # except Exception as exception:
-            #     print('Interação inválida')
-            #     break
-
-
 class Gerador(Movel):
     # itens esconditos é lista de itens que vai pro inventario depois de quebrar
-    def __init__(self, name, message, itens, item_invisivel):
-        super().__init__(name, message, itens)
+    def __init__(self, name, message, item_invisivel):
+        super().__init__(name, message)
         self.item_invisivel = item_invisivel
         self.actions = {
             'ajuda': 'retorna as ações possíveis',
@@ -75,11 +69,11 @@ class Gerador(Movel):
         self.olhar()
 
         # Entra em um novo loop para interação com aquele Movel
-        while 1:
+        while True:
 
             try:
 
-                action = input("\nInsira um comando para interagir com %s:\n" % self.name)
+                action = input("\nInsira um comando para interagir com %s:\n>>>" % self.name)
 
                 if action == 'ajuda':
                     for key, value in self.actions.items():
@@ -114,7 +108,7 @@ class Gerador(Movel):
         print("Consertando gerador...")
         animation = "|/-\\"
         idx = 0
-        while 1:
+        while True:
             if idx == 30:
                 break
             print(animation[idx % len(animation)], end="\r")
@@ -131,8 +125,8 @@ class Gerador(Movel):
 
 class ArmarioEletrico(Movel):
     # itens esconditos é lista de itens que vai pro inventario depois de quebrar
-    def __init__(self, name, message, itens, itens_escondidos):
-        super().__init__(name, message, itens)
+    def __init__(self, name, message, itens_escondidos):
+        super().__init__(name, message)
         self.itens_escondidos = itens_escondidos
         self.actions = {
             'ajuda': 'retorna as ações possíveis',
@@ -146,11 +140,11 @@ class ArmarioEletrico(Movel):
         self.olhar()
 
         # Entra em um novo loop para interação com aquele Movel
-        while 1:
+        while True:
 
             try:
 
-                action = input("\nInsira um comando para interagir com %s:\n" % self.name)
+                action = input("\nInsira um comando para interagir com %s:\n>>>" % self.name)
 
                 if action == 'ajuda':
                     for key, value in self.actions.items():

@@ -7,8 +7,8 @@ from copy import deepcopy
 # Interativos
 class Bote(Movel):
     
-    def __init__(self, name, message, itens):
-        super().__init__(name, message, itens)
+    def __init__(self, name, message):
+        super().__init__(name, message)
         self.actions = {
             'ajuda': 'Retorna as ações possíveis',
             'voltar': 'Parar de interagir com %s' % self.name,
@@ -21,21 +21,21 @@ class Bote(Movel):
         self.olhar()
 
         # Entra em um novo loop para interação com aquele móvel
-        while 1:
+        while True:
 
             try:
 
-                action = input("\nInsira um comando para interagir com %s:\n" % self.name)
+                action = input("\nInsira um comando para interagir com %s:\n>>>" % self.name)
 
                 if action == 'ajuda':
                     for key, value in self.actions.items():
                         print("%s: %s" % (key, value))
 
-                if action == 'soltar':
+                elif action == 'soltar':
                     return self.soltar(inventory)
 
 
-                if action == 'voltar':
+                elif action == 'voltar':
                     break
 
             except Exception:
@@ -69,8 +69,8 @@ class Bote(Movel):
 
 class MaquinaPesada(Movel):
     # itens esconditos é lista de itens que vai pro inventario depois de quebrar
-    def __init__(self, name, message, itens, itens_escondidos):
-        super().__init__(name, message, itens)
+    def __init__(self, name, message, itens_escondidos):
+        super().__init__(name, message)
         self.itens_escondidos = itens_escondidos
         self.actions = {
             'ajuda': 'retorna as ações possíveis',
@@ -84,11 +84,11 @@ class MaquinaPesada(Movel):
         self.olhar()
 
         # Entra em um novo loop para interação com aquele móvel
-        while 1:
+        while True:
 
             try:
 
-                action = input("\nInsira um comando para interagir com %s:\n" % self.name)
+                action = input("\nInsira um comando para interagir com %s:\n>>>" % self.name)
 
                 if action == 'ajuda':
                     for key, value in self.actions.items():
