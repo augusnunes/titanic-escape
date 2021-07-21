@@ -97,7 +97,7 @@ class Gerador(Movel):
 
         # CASO O INVENTARIO ESTEJA VAZIO
         if not inventory.itens:
-            print("\nEu preciso de um fusivel para consertar esse gerador...")
+            print("\nEu preciso de um fusivel de 30a para consertar esse gerador...")
             return False
 
         # caso as ferramentas não estejam no inventario

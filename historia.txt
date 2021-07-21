@@ -1,11 +1,8 @@
-Nascido no litoral e acostumado a viajar de barco desde a infância, era
-natural para Robert seguir carreira como trabalhador no transporte
-oceânico, ou quase isso. Trabalhou muito tempo como contrabandista até
-ser preso por alguns anos em um país estrangeiro. Como parte da pena, foi
-obrigado a trabalhar no {nome do navio} como técnico em manutenção. Os 
-dias se passaram e enquanto enrolava no trabalho, o navio se chocou com 
-algo e alguns compartimentos começaram a inundar. Na confusão, muitas 
-pessoas corriam para se salvar nos botes no deck superior, mas não 
-Roberto. Depois de todos esses anos nessa indústria vital, sabia que 
-poderia consertar o navio antes dele afundar, e que se conseguisse, 
-talvez sua dívida estaria paga e poderia recomeçar sua vida.
+Voce eh um tecnico de manutencao de um grande navio de containeres chamado CS UNION.
+Depois de passar pelo canal de Suez, piratas somalianos entraram no navio, danificaram
+o sistema de comunicacao e levaram seus colegas de trabalho como refens.
+Por sorte, voce conseguiu se esconder na sala de maquinas e ninguem te encontrou.
+Agora, sozinho no navio e sem ter como chamar por ajuda, voce precisa usar suas habilidades
+de mecanica para poder escapar de alguma maneira.
+
+Que Deus tenha piedade da sua alma. Boa sorte. 

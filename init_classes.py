@@ -37,13 +37,13 @@ def init():
         
         ## Maquinario
         # Não Interativos
-        motor = MovelNaoIter('motor', 'Que motorzão') 
+        motor = MovelNaoIter('motor', 'Um Wartsila RT-flex96C, fabricado na Finlandia, nao possa fazer nada com ele senao admira-lo.') 
         mapa = MovelNaoIter('mapa', 'Um mapa da Bahia... mas nem na Bahia estamos...')
-        mesa = MovelNaoIter('mesa', 'Esta mesa está meio suja')
+        mesa = MovelNaoIter('mesa', 'Uma mesa de trabalho normal, nada de util nela')
         # Interativos
         armario = ArmarioFerramentas('armario_ferramentas', 'Armário com ferramentas comuns de trabalho')
-        gerador = Gerador('gerador', 'Um gerador... devo conseguir energia com isso aqui', [energia])
-        armario_eletrico = ArmarioEletrico('armario_eletrico', 'O que será que tem aqui dentro?', [pe_de_cabra])
+        gerador = Gerador('gerador', 'Um gerador... esta danificado, eu posso conserta-lo para gerar energia no navio', [energia])
+        armario_eletrico = ArmarioEletrico('armario_eletrico', 'Um armario com travas eletricas, eu so consigo abrir se houver energia no navio', [pe_de_cabra])
 
         ##Dormitório
         # Não interativos
@@ -57,22 +57,22 @@ def init():
 
         ##Convés
         # Não Interativos
-        bocha = MovelNaoIter('bocha','Pena que o navio está afundado, seria ótimo uma partidinha')
-        tele_esti = MovelNaoIter('vista_estibordo','Puxa vida mas que vista!!!')
-        tele_bomb = MovelNaoIter('vista_bombordo','Uma bela visão')
+        bocha = MovelNaoIter('bocha','Bocha a diversao dos rapazes, pena que o navio esta afundado, seria otimo uma partidinha.')
+        tele_esti = MovelNaoIter('vista_estibordo','Eu nao vejo nada nesse lado do navio.')
+        tele_bomb = MovelNaoIter('vista_bombordo','Eu vejo uma massa de terra bem distante daqui, eu preciso do bote para chegar la.')
         # Interativos
         maquina_pesada = MaquinaPesada('maquina_pesada','Posso tentar procurar um fusivel aqui',[fusivel30a])
-        bote = Bote('bote','Esse bote eh minha saida desse navio!!')
+        bote = Bote('bote','Esse bote eh minha saida desse navio! Esta preso com uma trava, eu preciso encontrar algo para soltar a trava e uma chave para fazer funcionar.')
 
         ##Saguão##
         # Não interativos
-        bar = MovelNaoIter('bar', 'ai se eu tivesse tempo pra uma bebida')
-        mesa_pong = MovelNaoIter('tenis_de_mesa', 'na minha terra isso eh ping pong... e eu era o brabo')
-        sofa = MovelNaoIter('sofa', 'queria mimir! Mas não dá tempo, fiquei com Deus')
+        bar = MovelNaoIter('bar', 'Ai se eu tivesse tempo pra uma bebida.')
+        mesa_pong = MovelNaoIter('tenis_de_mesa', 'Na minha terra isso eh ping pong... e eu era o brabo')
+        sofa = MovelNaoIter('sofa', 'Queria dormir! Mas nao da tempo, fiquei com Deus.')
         # Interativos
-        radio = Radio('radio', 'Eu posso desmontar para tentar encontrar um fusivel', [fusivel13a])
-        tv = Tv('tv', 'Aqui deve ter um fusível hein...', [fusivel20a])
-        cofre = Cofre('cofre', 'Um cofre... preciso de energia e da senha pra abri-lo',[chave])
+        radio = Radio('radio', 'Eu posso desmontar para tentar encontrar um fusivel.', [fusivel13a])
+        tv = Tv('tv', 'Aqui deve ter um fusivel...', [fusivel20a])
+        cofre = Cofre('cofre', 'Um cofre... ele so funciona com energia, e eu ainda preciso da senha pra abri-lo.',[chave])
 
 
         # store all items inside furnitures
