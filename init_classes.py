@@ -85,10 +85,10 @@ def init():
         # create all environments
         #------------------------------------------------------
         
-        maquinario = Environment('Maquinário','O maquinário do navio, contém máquinas pesadas e algumas ferramentas')
-        dormitorio = Environment('Dormitório', 'O dormitório, contém alguns objetos pessoas dos passageiros' )
-        saguao = Environment('Saguão', 'Locar de lazer do navio')
-        conves = Environment('Convés', 'Eu vejo um bote, a unica maneira de sair daqui com vida')
+        maquinario = Environment('Maquinario','O maquinário do navio, contém máquinas pesadas e algumas ferramentas')
+        dormitorio = Environment('Dormitorio', 'O dormitório, contém alguns objetos pessoas dos passageiros' )
+        saguao = Environment('Saguao', 'Locar de lazer do navio')
+        conves = Environment('Conves', 'Eu vejo um bote, a unica maneira de sair daqui com vida')
 
         # add furnitures to environment
         ### MOVEIS MAQUINARIO
