@@ -26,10 +26,10 @@ def init():
         fusivel13a = Item('fusivel13a','um fusivel de 13 Amperes')
         fusivel20a = Item('fusivel20a','um fusivel de 20 Amperes')
         fusivel30a = Item('fusivel30a','um fusivel de 30 Amperes')
-        energia = Item('energia','energia que ngm ve, escondidinha no inventario q ngm ve hehe')
+        energia = Item('energia','EU TENHO A FORÇAAA, escondidinha no inventario q ngm ve hehe')
         pe_de_cabra = Item('pe_de_cabra', 'um pe de cabra... da pra usar de alavanca, ou ate quebrar algo')
-        relogio = Item('relogio','Mds, o relogio que meu pai me deu. Nunca que eu sairia desse navio sem isso!!!')
-        chave = Item('chave','Aaah, a chave do bote: bora sair daquii!')
+        relogio = Item('relogio','O relogio que meu pai me deu. Nunca que eu sairia desse navio sem isso!!!')
+        chave = Item('chave','A chave do bote que posso usar para sair daqui')
         carta = Item('carta', open('carta.txt').read())
         ######################################################
         # create all furnitures
@@ -57,7 +57,7 @@ def init():
 
         ##Convés
         # Não Interativos
-        bocha = MovelNaoIter('bocha','Bocha a diversao dos rapazes, pena que o navio esta afundado, seria otimo uma partidinha.')
+        bocha = MovelNaoIter('bocha','Bocha, a diversao dos rapazes, pena que o navio esta afundado, seria otimo uma partidinha.')
         tele_esti = MovelNaoIter('vista_estibordo','Eu nao vejo nada nesse lado do navio.')
         tele_bomb = MovelNaoIter('vista_bombordo','Eu vejo uma massa de terra bem distante daqui, eu preciso do bote para chegar la.')
         # Interativos

@@ -71,23 +71,26 @@ def main():
             print(room)
             objeto_para_olhar = action.split()
             if len(objeto_para_olhar) == 2:
-                objeto_para_olhar = objeto_para_olhar[1]
-                
-                # se o objeto para olhar é o ambiente
-                ambiente_atual = room.data.name.lower()
-                if objeto_para_olhar == ambiente_atual:
-                    print(room.data.descricao)
-
-                # se o objeto para olhar é um item do inventário
-                elif inventory.check(objeto_para_olhar):
-                    for item in inventory.itens:
-                        if item.name == objeto_para_olhar:
-                            print(item.message)
-
-                # se o objeto para olhar é um móvel
-                else:
-                    movel = room.data.get_furniture(objeto_para_olhar)
-                    movel.olhar()
+                try:
+                    objeto_para_olhar = objeto_para_olhar[1]
+                    
+                    # se o objeto para olhar é o ambiente
+                    ambiente_atual = room.data.name.lower()
+                    if objeto_para_olhar == ambiente_atual:
+                        print(room.data.descricao)
+    
+                    # se o objeto para olhar é um item do inventário
+                    elif inventory.check(objeto_para_olhar):
+                        for item in inventory.itens:
+                            if item.name == objeto_para_olhar:
+                                print(item.message)
+    
+                    # se o objeto para olhar é um móvel
+                    else:
+                        movel = room.data.get_furniture(objeto_para_olhar)
+                        movel.olhar()
+                except:
+                    print('Objeto inválido')
             
             else:
                 print("Comando inválido")

@@ -8,7 +8,7 @@ class QuartoInterativo(Movel):
             'ajuda': 'retorna as ações possíveis',
             'procurar': 'Procura por intens no %s' % self.name,
             'voltar': 'Parar de mexer no %s: ' % self.name,
-            'pegar item': 'Pegar um item específico',
+            'pegar *item*': 'Pegar um item específico',
             'pegar_todos': 'Pegar todos os itens'
         }
 

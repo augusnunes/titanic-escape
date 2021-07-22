@@ -12,7 +12,7 @@ class ArmarioFerramentas(Movel):
             'ajuda': 'retorna as ações possíveis',
             'procurar': 'Procura por intens no %s' % self.name,
             'voltar': 'Parar de mexer no %s: ' % self.name,
-            'pegar item': 'Lista itens para depois pegar',
+            'pegar *item*': 'Pega item selecionado',
             'pegar_todos': 'Pegar todos os itens'
         }
 
