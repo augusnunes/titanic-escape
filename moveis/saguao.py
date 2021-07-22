@@ -47,7 +47,7 @@ class Cofre(Movel):
 
         # CASO O INVENTARIO ESTEJA VAZIO
         if not inventory2.itens:
-            print("\nEu preciso de energia pra abrir esse armário...")
+            print("\nEu preciso de energia pra abrir esse cofre...")
             return False
         
         # caso as ferramentas não estejam no inventario

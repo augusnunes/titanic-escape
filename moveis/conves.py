@@ -49,10 +49,12 @@ class Bote(Movel):
             return False
 
         # caso as ferramentas não estejam no inventario
-        if 'pe_de_cabra' and 'chave' not in [i.name for i in inventory.itens]:
+        itens_no_inv = [i.name for i in inventory.itens]
+        if 'chave' not in itens_no_inv and 'pe_de_cabra' not in itens_no_inv:
             print("\nPreciso do pe-de-cabra e da chave para ligar esse bote...")
             return False
-
+        
+        # Caso contrário
         print("libertando o bote...")
         animation = "|/-\\"
         idx = 0
@@ -62,7 +64,8 @@ class Bote(Movel):
             print(animation[idx % len(animation)], end="\r")
             idx += 1
             time.sleep(0.1)
-        print('Aeeeee, bora vazaaaaaar')
+        print('Depois de tudo, eu consegui sair do navio!')
+        print('Fim de jogo, muito obrigado por jogar!')
         return True
       
 
