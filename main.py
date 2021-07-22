@@ -52,19 +52,22 @@ def main():
             
         # interação com os elementos
         elif 'interagir' in action or 'int' in action:
-            print(room)
-            # get the desired furniture
-            movel = action.split()[1]
-            resp = room.data.get_furniture(movel).play(inventory, inventory2)
-
-            if movel == 'bote' and resp:
-                print("Parabens, você conseguiu sair do navio!!")
-                print('Fim de jogo, muito obrigado por jogar!')
-                break
-
-            if resp:
-                # add item to the player inventory
-                inventory.add(resp)
+            try:
+                print(room)
+                # get the desired furniture
+                movel = action.split()[1]
+                resp = room.data.get_furniture(movel).play(inventory, inventory2)
+    
+                if movel == 'bote' and resp:
+                    print("Parabens, você conseguiu sair do navio!!")
+                    print('Fim de jogo, muito obrigado por jogar!')
+                    break
+    
+                if resp:
+                    # add item to the player inventory
+                    inventory.add(resp)
+            except:
+                print('Comando invalido')
 
 
         # ação de olhar
