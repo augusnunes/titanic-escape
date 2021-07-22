@@ -59,6 +59,7 @@ def main():
 
             if movel == 'bote' and resp:
                 print("Parabens, você conseguiu sair do navio!!")
+                print('Fim de jogo, muito obrigado por jogar!')
                 break
 
             if resp:

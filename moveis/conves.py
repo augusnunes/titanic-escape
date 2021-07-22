@@ -64,8 +64,7 @@ class Bote(Movel):
             print(animation[idx % len(animation)], end="\r")
             idx += 1
             time.sleep(0.1)
-        print('Depois de tudo, eu consegui sair do navio!')
-        print('Fim de jogo, muito obrigado por jogar!')
+        print('Você conseguiu soltar o bote!')
         return True
       
 
