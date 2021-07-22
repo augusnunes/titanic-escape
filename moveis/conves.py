@@ -50,7 +50,7 @@ class Bote(Movel):
 
         # caso as ferramentas não estejam no inventario
         itens_no_inv = [i.name for i in inventory.itens]
-        if 'chave' not in itens_no_inv and 'pe_de_cabra' not in itens_no_inv:
+        if not ('chave' in itens_no_inv and 'pe_de_cabra' in itens_no_inv):
             print("\nPreciso do pe-de-cabra e da chave para ligar esse bote...")
             return False
         
